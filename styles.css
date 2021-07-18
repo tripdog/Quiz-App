@@ -73,7 +73,7 @@ h2{
 
 .inner {
     display: grid;
-    grid-template-rows:    repeat(4, 25%);
+    grid-auto-rows:    repeat(2, max-content);
     grid-template-columns: repeat(3, 1fr);
 }
 
@@ -85,6 +85,7 @@ h2{
     border-radius: 10px;
     margin-bottom: 35px;
     background-color: rgba(0,0,0,.1);
+  
 }
 
 h3{
