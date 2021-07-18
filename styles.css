@@ -1,0 +1,132 @@
+
+body{
+    padding: 0;
+    margin: 0;
+    background-color:#38082e ;
+    color: #fff;
+    font-family: 'STIX Two Math', serif;
+    font-size: larger;
+}
+
+.wrapper {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.wrapper::after{
+  content: "";
+  background: url(img/rocket.svg)no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+
+header {
+    display: grid;
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+}
+
+.score {
+display: grid;
+justify-content: center;
+grid-template-columns: 150px 30px;
+grid-template-rows: 100px;
+}
+
+.scoreBox {
+    width: 120px;
+    height: 50px;
+    border: 1px dashed #fcbc56;
+    background-color: rgba(255,255,255,.2);
+    grid-area: 1 / 2 / 2 / 3;
+    margin-top:-15px;
+    padding: 18px 0 0 20px;
+    border-radius: 6px;
+}
+
+h1{
+    font-family: 'Monoton', cursive;
+    color: #fcbc56;
+    font-size: 72px;
+    margin-bottom: 30px;
+}
+
+h2{
+    font-family: 'Big Shoulders Text', cursive;
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    grid-area: 1 / 1 / 2 / 2; 
+}
+
+.inner {
+    display: grid;
+    grid-template-rows:    repeat(4, 25%);
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.quiz{
+    display:grid;
+    width: 195px;
+    border: 1px dashed #fcbc56;
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 35px;
+    background-color: rgba(0,0,0,.1);
+}
+
+h3{
+    font-family: 'Big Shoulders Text', cursive;
+    color: #24ceba;
+    padding:0 ;
+    margin:0 ;
+    font-size: x-large;
+}
+
+.miniWrap{
+    margin: 12px; 
+}
+
+.miniWrap:hover {
+    background-color:#68ecdd;
+    transition: all 400ms ease;
+    color:#584053;
+    border-radius: 6px;
+    cursor: pointer;
+}
+label, input {
+    cursor: pointer;
+}
+button{
+    background-color:#c64e48; 
+    height: 45px;
+    width: 100px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 15px;
+    color: #fff;
+}
+
+button:hover{
+    background-color:#24ceba ;
+    transition: all 400ms ease;
+    color:#000f;
+    cursor: pointer;
+}
+
+p {
+    margin: 15px 0 10px 0;
+}
+
