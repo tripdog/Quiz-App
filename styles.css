@@ -20,10 +20,7 @@ body{
 
 .wrapper::after{
   content: "";
-  background: url(img/rocket.svg)no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  background: url(img/rocket.svg)no-repeat center center fixed; 
   background-size: cover;
   opacity: 0.4;
   top: 0;
@@ -76,9 +73,8 @@ h2{
 
 .inner {
     display: grid;
-    grid-auto-flow: dense;
     grid-auto-rows:    repeat(2, max-content);
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(277px, 1fr));
 }
 
 .quiz{
