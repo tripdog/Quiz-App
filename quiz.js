@@ -1,40 +1,39 @@
-const questions = [
-    {
-    question: "Distance to the Moon?",
-    answer: "160000 Miles",
-    id: 1,
-    options: ["276,905 miles", "1,000 Miles", "238,900 Miles", "163,592 Miles"]
-},
-    {
-    question: "Deoxyribonucleic acid is commonly referred to as?",
-    answer: "DNA",
-    id: 2,
-    options: ["RNA", "Life's Leggos", "DNA", "Subatomic Glue"]
-},
-    {
-    question: "What planet is closest in size to our moon?",
-    answer: "Mercury",
-    id: 3,
-    options: ["Earth", "Mercury", "Pluto", "Venus"]
-},
-    {
-    question: "What's the common name for a cubic decimeter",
-    answer: "Liter",
-    id: 4,
-    options: ["Liter", "Gallon", "Pint", "Kilometer"]
-},
-    {
-    question: "What process involves heating an ore to obtain a metal?",
-    answer: "Smelting",
-    id: 5,
-    options: ["Alchemy", "Smelting", "Chemistry", "Oxidation"]
+const questions = [{
+        question: "Distance to the Moon?",
+        answer: "160000 Miles",
+        id: 1,
+        options: ["276,905 miles", "1,000 Miles", "238,900 Miles", "163,592 Miles"]
     },
-    
     {
-    question: "How many of the nine planets have moons?",
-    answer: "Seven",
-    id: 6,
-    options: ["Nine", "Five", "Twelve", "Seven"]
+        question: "Deoxyribonucleic acid is commonly referred to as?",
+        answer: "DNA",
+        id: 2,
+        options: ["RNA", "Life's Leggos", "DNA", "Subatomic Glue"]
+    },
+    {
+        question: "What planet is closest in size to our moon?",
+        answer: "Mercury",
+        id: 3,
+        options: ["Earth", "Mercury", "Pluto", "Venus"]
+    },
+    {
+        question: "What's the common name for a cubic decimeter",
+        answer: "Liter",
+        id: 4,
+        options: ["Liter", "Gallon", "Pint", "Kilometer"]
+    },
+    {
+        question: "What process involves heating an ore to obtain a metal?",
+        answer: "Smelting",
+        id: 5,
+        options: ["Alchemy", "Smelting", "Chemistry", "Oxidation"]
+    },
+
+    {
+        question: "How many of the nine planets have moons?",
+        answer: "Seven",
+        id: 6,
+        options: ["Nine", "Five", "Twelve", "Seven"]
     },
 ]
 
@@ -78,8 +77,6 @@ questions.forEach(item => {
                         <label for="opt4">${item.options[3]}</label>
                     </div></form>
 `
-    
-
     let ansBtn = document.createElement("button")
     ansBtn.type = "submit"
     ansBtn.innerText = "answer"
@@ -99,20 +96,17 @@ questions.forEach(item => {
                     currentForm.parentElement.innerHTML = "Excellent!"
                     score += 10
                     scoreBoard.innerText = score + " points"
-                }
-                else {
-                   currentForm.parentElement.className = "quizWrong"
-                   currentForm.parentElement.innerHTML = "WRONG!"
-                   console.log("Wrong")
+                } else {
+                    currentForm.parentElement.className = "quizWrong"
+                    currentForm.parentElement.innerHTML = "WRONG!"
+                    console.log("Wrong")
                 }
             }
         })
-  
+
     })
     newQuestion.querySelector("form").appendChild(ansBtn)
-    
 })
-
 const completeBtn = document.querySelector(".playAgain button")
 completeBtn.addEventListener("click", () => {
     location.reload()

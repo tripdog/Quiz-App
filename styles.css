@@ -83,6 +83,7 @@ h2{
 .quiz{
     display:grid;
     width: 195px;
+    min-height: 277px;
     border: 1px dashed #fcbc56;
     padding: 40px;
     border-radius: 10px;
@@ -93,6 +94,7 @@ h2{
 .quizWrong {
     display:grid;
     width: 195px;
+    min-height: 360px;
     border: 1px dashed #fcbc56;
     padding: 40px;
     border-radius: 10px;
@@ -106,6 +108,7 @@ h2{
 .quizCorrect {
     display:grid;
     width: 195px;
+    min-height: 360px;
     border: 1px dashed #fcbc56;
     padding: 40px;
     border-radius: 10px;
