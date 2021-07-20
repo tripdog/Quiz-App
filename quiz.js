@@ -1,6 +1,6 @@
 const questions = [{
         question: "Distance to the Moon?",
-        answer: "160000 Miles",
+        answer: "238,900 Miles",
         id: 1,
         options: ["276,905 miles", "1,000 Miles", "238,900 Miles", "163,592 Miles"]
     },
@@ -47,9 +47,10 @@ let questionsAttempted = 0
 const checkingQuiz = () => {
     let playAgain = document.querySelector(".playAgain")
     if (questionsAttempted === 6) {
-        document.querySelector(".wrapper").style.display = "none"
+        document.querySelector(".inner").style.display = "none"
         playAgain.style.display = "grid"
-        playAgain.querySelector("h2").innerText = "Total Score " + `${score}/60`
+        playAgain.querySelector("h2").innerText = "Game Over."
+        playAgain.querySelector("h3").innerText = "Total Score " + `${score}/100`
     } else {
         document.querySelector(".wrapper").style.display = "grid"
         playAgain.style.display = "none"
@@ -93,12 +94,12 @@ questions.forEach(item => {
                 console.log(item.answer)
                 if (radio.value === item.answer) {
                     currentForm.parentElement.className = "quizCorrect"
-                    currentForm.parentElement.innerHTML = "Excellent!"
-                    score += 10
+                    currentForm.parentElement.innerHTML = "Well Done!"
+                    score += 16.67
                     scoreBoard.innerText = score + " points"
                 } else {
                     currentForm.parentElement.className = "quizWrong"
-                    currentForm.parentElement.innerHTML = "WRONG!"
+                    currentForm.parentElement.innerHTML = "OUCH!"
                     console.log("Wrong")
                 }
             }
@@ -107,7 +108,12 @@ questions.forEach(item => {
     })
     newQuestion.querySelector("form").appendChild(ansBtn)
 })
-const completeBtn = document.querySelector(".playAgain button")
+const completeBtn = document.querySelector(".replay")
+const defeatBtn = document.querySelector(".defeat")
 completeBtn.addEventListener("click", () => {
     location.reload()
+})
+defeatBtn.addEventListener("click", () => {
+    document.querySelector("header h2").remove()
+    document.querySelector(".scoreBox").remove()
 })

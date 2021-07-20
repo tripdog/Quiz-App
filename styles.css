@@ -76,6 +76,7 @@ h2{
 
 .inner {
     display: grid;
+    grid-auto-flow: dense;
     grid-auto-rows:    repeat(2, max-content);
     grid-template-columns: repeat(3, 1fr);
 }
@@ -99,7 +100,8 @@ h2{
     padding: 40px;
     border-radius: 10px;
     margin-bottom: 35px;
-    background-color: rgba(245, 47, 47, 0.6);
+    background-color: rgba(245, 47, 47, 0.4);
+    transition: cubic-bezier(0.075, 0.82, 0.165, 300);
     
     justify-content: center;
     align-items: center;
@@ -113,10 +115,18 @@ h2{
     padding: 40px;
     border-radius: 10px;
     margin-bottom: 35px;
-    background-color: rgba(77, 218, 34, 0.6);
+    background-color: rgba(77, 218, 34, 0.4);
+    transition: cubic-bezier(0.075, 0.82, 0.165, 309);
     
     justify-content: center;
     align-items: center;
+}
+
+.gameOver{
+    font-family: 'Monoton', cursive;
+    color: #e0b877;
+    font-size: 50px;
+    margin-bottom: 30px;
 }
 
 h3{
