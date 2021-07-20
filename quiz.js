@@ -9,7 +9,7 @@ const questions = [
     question: "Deoxyribonucleic acid is commonly referred to as?",
     answer: "DNA",
     id: 2,
-    options: [" RNA", "Life's Leggos", " DNA", "Subatomic Glue"]
+    options: ["RNA", "Life's Leggos", "DNA", "Subatomic Glue"]
 },
     {
     question: "What planet is closest in size to our moon?",
@@ -42,13 +42,27 @@ const scoreBoard = document.querySelector(".points")
 let score = 0
 const inner = document.querySelector(".inner")
 inner.innerHTML = ""
+let questionsAttempted = 0
+
+
+const checkingQuiz = () => {
+    let playAgain = document.querySelector(".playAgain")
+    if (questionsAttempted === 6) {
+        document.querySelector(".wrapper").style.display = "none"
+        playAgain.style.display = "grid"
+        playAgain.querySelector("h2").innerText = "Total Score " + `${score}/60`
+    } else {
+        document.querySelector(".wrapper").style.display = "grid"
+        playAgain.style.display = "none"
+    }
+}
 
 questions.forEach(item => {
     let newQuestion = document.createElement('div')
     newQuestion.className = "quiz"
     document.querySelector(".inner").appendChild(newQuestion)
     newQuestion.innerHTML = `
-    <h3>Question ${item.id}</h3>
+                <h3>Question ${item.id}</h3>
                 <p>${item.question}</p>
                 <form><div class="miniWrap">
                         <input type="radio" name="opt" id="opt1" value="${item.options[0]}">
@@ -62,25 +76,44 @@ questions.forEach(item => {
                     </div><div class="miniWrap">
                         <input type="radio" name="opt" id="opt4" value="${item.options[3]}">
                         <label for="opt4">${item.options[3]}</label>
-                    </div><button onclick="correctAnswer(event, ${item})" type="submit">Answer</button></form>
-    `    
+                    </div></form>
+`
+    
+
+    let ansBtn = document.createElement("button")
+    ansBtn.type = "submit"
+    ansBtn.innerText = "answer"
+    ansBtn.addEventListener("click", (e) => {
+        e.preventDefault()
+        let currentForm = e.target.parentElement
+        let inputList = currentForm.querySelectorAll("input")
+        console.log(item)
+        inputList.forEach(radio => {
+            if (radio.checked) {
+                questionsAttempted += 1
+                checkingQuiz()
+                console.log(radio.value)
+                console.log(item.answer)
+                if (radio.value === item.answer) {
+                    currentForm.parentElement.className = "quizCorrect"
+                    currentForm.parentElement.innerHTML = "Excellent!"
+                    score += 10
+                    scoreBoard.innerText = score + " points"
+                }
+                else {
+                   currentForm.parentElement.className = "quizWrong"
+                   currentForm.parentElement.innerHTML = "WRONG!"
+                   console.log("Wrong")
+                }
+            }
+        })
+  
+    })
+    newQuestion.querySelector("form").appendChild(ansBtn)
+    
 })
 
-// const answerBtn = document.querySelectorAll("form button")
-// answerBtn.forEach(btn => {
-//     btn.addEventListener("click", (e) => {
-//     e.preventDefault()
-//         let currentForm = e.target.parentElement
-//         let options = currentForm.querySelectorAll("input[name='opt']")
-//         options.forEach(ans => {
-//                 if (ans.checked) {
-//                     console.log(ans)
-//                 }
-//             })
-//     })
-// })
-
-const correctAnswer = (currentBtn, question) => {
-    currentBtn.preventDefault()
-    console.log(currentBtn)
-}
+const completeBtn = document.querySelector(".playAgain button")
+completeBtn.addEventListener("click", () => {
+    location.reload()
+})

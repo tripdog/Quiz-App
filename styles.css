@@ -1,4 +1,3 @@
-
 body{
     padding: 0;
     margin: 0;
@@ -6,6 +5,10 @@ body{
     color: #fff;
     font-family: 'STIX Two Math', serif;
     font-size: larger;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .wrapper {
@@ -85,7 +88,32 @@ h2{
     border-radius: 10px;
     margin-bottom: 35px;
     background-color: rgba(0,0,0,.1);
-  
+}
+
+.quizWrong {
+    display:grid;
+    width: 195px;
+    border: 1px dashed #fcbc56;
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 35px;
+    background-color: rgba(245, 47, 47, 0.6);
+    
+    justify-content: center;
+    align-items: center;
+}
+
+.quizCorrect {
+    display:grid;
+    width: 195px;
+    border: 1px dashed #fcbc56;
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 35px;
+    background-color: rgba(77, 218, 34, 0.6);
+    
+    justify-content: center;
+    align-items: center;
 }
 
 h3{
@@ -129,5 +157,13 @@ button:hover{
 
 p {
     margin: 15px 0 10px 0;
+}
+
+.playAgain{
+    display: none;
+    align-self: center;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 
