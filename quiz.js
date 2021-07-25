@@ -1,4 +1,4 @@
-const questions = [{
+let questions = [{
         question: "Distance to the Moon?",
         answer: "238,900 Miles",
         id: 1,
@@ -37,6 +37,20 @@ const questions = [{
     },
 ]
 
+
+// const generateQuestion = () => {
+//     let randomQuestArr = []
+//     let avaiableQuestions = questions
+//     for (let i = 1; i <= 6; i++){
+//         let quest = avaiableQuestions[Math.floor(Math.random() * avaiableQuestions.length)]
+//         console.log(quest)
+//         availableQuestions = avaiableQuestions.filter(item => item.id !== quest.id)
+//         console.log(avaiableQuestions)
+//         randomQuestArr.push(quest)
+//     }
+//     return randomQuestArr
+// }
+// questions = generateQuestion()
 const scoreBoard = document.querySelector(".points")
 let score = 0
 const inner = document.querySelector(".inner")
@@ -96,6 +110,7 @@ questions.forEach(item => {
                     currentForm.parentElement.className = "quizCorrect"
                     currentForm.parentElement.innerHTML = "Well Done!"
                     score += 16.67
+                    score = Math.floor(score)
                     scoreBoard.innerText = score + " points"
                 } else {
                     currentForm.parentElement.className = "quizWrong"
@@ -104,7 +119,6 @@ questions.forEach(item => {
                 }
             }
         })
-
     })
     newQuestion.querySelector("form").appendChild(ansBtn)
 })
@@ -112,7 +126,10 @@ const completeBtn = document.querySelector(".replay")
 const defeatBtn = document.querySelector(".defeat")
 completeBtn.addEventListener("click", () => {
     location.reload()
-})
+   
+    // let randomQuestions = generateQuestion()
+    })
+
 defeatBtn.addEventListener("click", () => {
     document.querySelector("header h2").remove()
     document.querySelector(".scoreBox").remove()
